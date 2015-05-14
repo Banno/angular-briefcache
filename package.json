@@ -1,0 +1,28 @@
+{
+  "name": "angular-briefcache",
+  "description": "Cache factory for Angular with short expirations",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Banno/angular-briefcache",
+  "license": "Apache-2.0",
+  "contributors": [
+    "Eric Heikes <eric.heikes@banno.com>"
+  ],
+  "keywords": [
+    "angular",
+    "cache"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.10.0",
+    "gulp-rename": "^1.2.2",
+    "jshint-stylish": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Banno/angular-briefcache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Banno/angular-briefcache/issues"
+  }
+}

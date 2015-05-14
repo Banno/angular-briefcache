@@ -1,0 +1,21 @@
+{
+  "name": "angular-briefcache",
+  "description": "Cache factory for Angular with short expirations",
+  "license": "Apache-2.0",
+  "authors": [
+    "Eric Heikes <eric.heikes@banno.com>"
+  ],
+  "keywords": ["angular", "cache", "http"],
+  "main": "dist/briefcache.js",
+  "ignore": [
+    "**/.*",
+    "gulpfile.js",
+    "bower_components",
+    "node_modules"
+  ],
+  "moduleType": ["globals", "amd", "node"],
+  "dependencies": {
+    "requirejs": "^2.0.0",
+    "angular-cache": "^4.0.0"
+  }
+}
