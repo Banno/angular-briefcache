@@ -18,7 +18,62 @@ angular.module('myApp', ['banno.briefCache']).service('ExampleService', function
 
 ## Installation
 
-`bower install --save angular-briefcache` or `npm install --save angular-briefcache`
+The briefCache requires Angular and the [angular-cache](https://github.com/jmdobry/angular-cache) library. These are installed automatically when using bower:
+
+```shell
+`bower install --save angular-briefcache`
+```
+
+Then include the necessary scripts in your app:
+
+```html
+<html ng-app="myApp">
+  <head>
+    <title>Example</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
+    <script src="bower_components/angular-briefcache/dist/briefCache.js"></script>
+    <script>
+      angular.module('myApp', ['banno.briefCache']).run(function(briefCache) {
+        console.log('briefCache info:', briefCache.info());
+      });
+    </script>
+  </head>
+  <body>Example</body>
+</html>
+```
+
+You can also use RequireJS to load the modules:
+
+```html
+<html ng-app="myApp">
+  <head>
+    <title>Example using RequireJS</title>
+    <script src="bower_components/requirejs/require.js"></script>
+    <script>
+      requirejs.config({
+        shim: {
+          angular: {
+            exports: 'angular'
+          }
+        },
+        paths: {
+          'angular': 'bower_components/angular/angular',
+          'angular-cache': 'bower_components/angular-cache/dist/angular-cache',
+          'banno/briefCache': 'bower_components/angular-briefcache/dist/briefCache'
+        }
+      });
+
+      require(['angular', 'banno/briefCache'], function(angular, briefCache) {
+        angular.module('myApp', [briefCache]).run(function(briefCache) {
+          console.log('briefCache info:', briefCache.info());
+        });
+      });
+    </script>
+  </head>
+  <body>Example</body>
+</html>
+```
 
 ## Configuration
 
@@ -31,6 +86,8 @@ This cache factory comes with the following settings:
 ## Contributing
 
 You'll need [gulp](http://gulpjs.com/) installed on your machine to run the development tools. Then run `gulp` to run all of the tasks and watch the files for changes.
+
+Please add tests and maintain the existing styling when adding and updating the code.
 
 ## Bugs & Feature Requests
 

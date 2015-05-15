@@ -1,3 +1,12 @@
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['angular', 'angular-cache'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('angular'), require('angular-cache'));
+  } else {
+    root.banno = root.banno || {}; root.banno.briefCache = factory(root.angular, root.angularCache);
+  }
+}(this, function(angular, angularCache) {
 angular.module('banno.briefCache', ['angular-cache']).factory('briefCache', function(CacheFactory) {
 	'use strict';
 	/* jshint newcap:false */
@@ -7,3 +16,6 @@ angular.module('banno.briefCache', ['angular-cache']).factory('briefCache', func
 		deleteOnExpire: 'passive' // delete as they are requested
 	});
 });
+
+return "banno.briefCache";
+}));

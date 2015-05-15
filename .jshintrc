@@ -16,8 +16,27 @@
 	"strict"				: true,			// true: Requires all functions run in ES5 Strict Mode
 	"trailing"			: true,			// true: Prohibit trailing whitespaces
 
+	"node"					: true,
+
 	"globals"				: {
 		"angular"			: false,
+
+		// RequireJS
+		"requirejs"		: false,
+		"define"			: false,
+		"require"			: false,
+
+		// Jasmine DSL
+		"jasmine"			: false,
+		"beforeEach"	: false,
+		"afterEach"		: false,
+		"describe"		: false,
+		"expect"			: false,
+		"it"					: false,
+		"spyOn"				: false,
+		"xdescribe"		: false,
+		"xit"					: false,
+		"pending"			: false,
 
 		// Angular mocks
 		"module"			: false,

@@ -1,14 +1,18 @@
-/* jshint node:true */
 'use strict';
 
-var gulp    = require('gulp');
-var jshint  = require('gulp-jshint');
-var rename  = require('gulp-rename');
-var stylish = require('jshint-stylish');
+var del         = require('del');
+var gulp        = require('gulp');
+var jshint      = require('gulp-jshint');
+var karma       = require('karma').server;
+var rename      = require('gulp-rename');
+var runSequence = require('run-sequence').use(gulp);
+var stylish     = require('jshint-stylish');
+var umd         = require('gulp-umd');
 
 var jsFiles = [
 	'gulpfile.js',
-	'index.js'
+	'index.js',
+	'test/*.js'
 ];
 
 gulp.task('lint', function() {
@@ -17,14 +21,59 @@ gulp.task('lint', function() {
 		.pipe(jshint.reporter(stylish));
 });
 
-gulp.task('build', function() {
+gulp.task('clean', function(done) {
+	del('./dist', done);
+});
+
+gulp.task('build', ['clean'], function() {
 	return gulp.src('index.js')
 		.pipe(rename('briefCache.js'))
+		.pipe(umd({
+			dependencies: function() {
+				return [{
+					name: 'angular',
+					amd: 'angular',
+					cjs: 'angular',
+					global: 'angular',
+					param: 'angular',
+				}, {
+					name: 'angularCache',
+					amd: 'angular-cache',
+					cjs: 'angular-cache',
+					global: 'angularCache',
+					param: 'angularCache'
+				}];
+			},
+			exports: function() { return '"banno.briefCache"'; },
+			namespace: function() { return 'banno = root.banno || {}; root.banno.briefCache'; }
+		}))
 		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('watch', function() {
-	gulp.watch(jsFiles, ['lint', 'build']);
+gulp.task('test:globals', function(done) {
+	karma.start({
+		configFile: __dirname + '/test/global.conf.js',
+		singleRun: true
+	}, done);
 });
 
-gulp.task('default', ['lint', 'build', 'watch']);
+gulp.task('test:amd', function(done) {
+	karma.start({
+		configFile: __dirname + '/test/amd.conf.js',
+		singleRun: true
+	}, done);
+});
+
+gulp.task('test', function(done) {
+	return runSequence('test:globals', 'test:amd', done);
+});
+
+gulp.task('all', function(done) {
+	return runSequence(['lint', 'build'], 'test', done);
+});
+
+gulp.task('watch', function() {
+	gulp.watch(jsFiles.concat('.jshintrc'), ['all']);
+});
+
+gulp.task('default', ['all', 'watch']);

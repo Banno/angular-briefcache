@@ -13,9 +13,8 @@
     "bower_components",
     "node_modules"
   ],
-  "moduleType": ["globals", "amd", "node"],
+  "moduleType": ["globals", "amd"],
   "dependencies": {
-    "requirejs": "^2.0.0",
     "angular-cache": "^4.0.0"
   }
 }
