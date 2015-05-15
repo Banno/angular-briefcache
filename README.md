@@ -32,7 +32,7 @@ Then include the necessary scripts in your app:
     <title>Example</title>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
-    <script src="bower_components/angular-briefcache/dist/briefCache.js"></script>
+    <script src="bower_components/angular-briefcache/dist/angular-briefcache.js"></script>
     <script>
       angular.module('myApp', ['banno.briefCache']).run(function(briefCache) {
         console.log('briefCache info:', briefCache.info());
@@ -60,7 +60,7 @@ You can also use RequireJS to load the modules:
         paths: {
           'angular': 'bower_components/angular/angular',
           'angular-cache': 'bower_components/angular-cache/dist/angular-cache',
-          'banno/briefCache': 'bower_components/angular-briefcache/dist/briefCache'
+          'banno/briefCache': 'bower_components/angular-briefcache/dist/angular-briefcache'
         }
       });
 

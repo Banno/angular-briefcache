@@ -4,14 +4,13 @@ var del         = require('del');
 var gulp        = require('gulp');
 var jshint      = require('gulp-jshint');
 var karma       = require('karma').server;
-var rename      = require('gulp-rename');
 var runSequence = require('run-sequence').use(gulp);
 var stylish     = require('jshint-stylish');
 var umd         = require('gulp-umd');
 
 var jsFiles = [
 	'gulpfile.js',
-	'index.js',
+	'angular-briefcache.js',
 	'test/*.js'
 ];
 
@@ -26,8 +25,7 @@ gulp.task('clean', function(done) {
 });
 
 gulp.task('build', ['clean'], function() {
-	return gulp.src('index.js')
-		.pipe(rename('briefCache.js'))
+	return gulp.src('angular-briefcache.js')
 		.pipe(umd({
 			dependencies: function() {
 				return [{

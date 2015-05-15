@@ -6,7 +6,7 @@
     "Eric Heikes <eric.heikes@banno.com>"
   ],
   "keywords": ["angular", "cache", "http"],
-  "main": "dist/briefcache.js",
+  "main": "dist/angular-briefcache.js",
   "ignore": [
     "**/.*",
     "gulpfile.js",

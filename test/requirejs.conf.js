@@ -18,7 +18,7 @@ requirejs.config({
 		'angular': 'bower_components/angular/angular',
 		'angular-cache': 'bower_components/angular-cache/dist/angular-cache',
 		'angular-mocks': 'node_modules/angular-mocks/angular-mocks',
-		'banno/briefCache': 'dist/briefCache'
+		'banno/briefCache': 'dist/angular-briefcache'
 	},
 
 	// Start the test run once RequireJS is done.

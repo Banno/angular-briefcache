@@ -6,7 +6,7 @@ module.exports = function(config) {
 			'bower_components/angular/angular.js',
 			'node_modules/angular-mocks/angular-mocks.js',
 			'bower_components/angular-cache/dist/angular-cache.js',
-			'dist/briefCache.js',
+			'dist/angular-briefcache.js',
 			'test/test-global.js'
 		],
 		frameworks: ['jasmine'],
