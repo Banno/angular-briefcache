@@ -1,3 +1,9 @@
+/*!
+ * angular-briefcache v1.0.0
+ * https://github.com/Banno/angular-briefcache
+ * (c) 2015 Jack Henry & Associates Inc
+ * License: Apache-2.0
+ */
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['angular', 'angular-cache'], factory);

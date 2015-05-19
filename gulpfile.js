@@ -2,8 +2,10 @@
 
 var del         = require('del');
 var gulp        = require('gulp');
+var header      = require('gulp-header');
 var jshint      = require('gulp-jshint');
 var karma       = require('karma').server;
+var pkg         = require('./package.json');
 var rename      = require('gulp-rename');
 var runSequence = require('run-sequence').use(gulp);
 var stylish     = require('jshint-stylish');
@@ -27,6 +29,14 @@ gulp.task('clean', function(done) {
 });
 
 gulp.task('build', ['clean'], function() {
+	var banner = ['/*!',
+		' * <%= pkg.name %> v<%= pkg.version %>',
+		' * <%= pkg.homepage %>',
+		' * (c) 2015 Jack Henry & Associates Inc',
+		' * License: <%= pkg.license %>',
+		' */',
+		''].join('\n');
+
 	return gulp.src('angular-briefcache.js')
 		.pipe(umd({
 			dependencies: function() {
@@ -47,8 +57,9 @@ gulp.task('build', ['clean'], function() {
 			exports: function() { return '"banno.briefCache"'; },
 			namespace: function() { return 'banno = root.banno || {}; root.banno.briefCache'; }
 		}))
+		.pipe(header(banner, { pkg : pkg } ))
 		.pipe(gulp.dest('./dist'))
-		.pipe(uglify())
+		.pipe(uglify({ preserveComments: 'some' }))
 		.pipe(rename({ extname: '.min.js' }))
 		.pipe(gulp.dest('./dist'));
 });
