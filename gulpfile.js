@@ -4,8 +4,10 @@ var del         = require('del');
 var gulp        = require('gulp');
 var jshint      = require('gulp-jshint');
 var karma       = require('karma').server;
+var rename      = require('gulp-rename');
 var runSequence = require('run-sequence').use(gulp);
 var stylish     = require('jshint-stylish');
+var uglify      = require('gulp-uglify');
 var umd         = require('gulp-umd');
 
 var jsFiles = [
@@ -45,6 +47,9 @@ gulp.task('build', ['clean'], function() {
 			exports: function() { return '"banno.briefCache"'; },
 			namespace: function() { return 'banno = root.banno || {}; root.banno.briefCache'; }
 		}))
+		.pipe(gulp.dest('./dist'))
+		.pipe(uglify())
+		.pipe(rename({ extname: '.min.js' }))
 		.pipe(gulp.dest('./dist'));
 });
 

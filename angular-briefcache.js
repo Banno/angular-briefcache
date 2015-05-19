@@ -1,4 +1,4 @@
-angular.module('banno.briefCache', ['angular-cache']).factory('briefCache', function(CacheFactory) {
+angular.module('banno.briefCache', ['angular-cache']).factory('briefCache', ['CacheFactory', function(CacheFactory) {
 	'use strict';
 	/* jshint newcap:false */
 	return CacheFactory('briefCache', {
@@ -6,4 +6,4 @@ angular.module('banno.briefCache', ['angular-cache']).factory('briefCache', func
 		cacheFlushInterval: 60 * 60 * 1000, // clear itself every hour
 		deleteOnExpire: 'passive' // delete as they are requested
 	});
-});
+}]);
