@@ -1,5 +1,5 @@
 /*!
- * angular-briefcache v1.0.0
+ * angular-briefcache v1.0.2
  * https://github.com/Banno/angular-briefcache
  * (c) 2015 Jack Henry & Associates Inc
  * License: Apache-2.0
@@ -16,7 +16,7 @@
 angular.module('banno.briefCache', ['angular-cache']).factory('briefCache', ['CacheFactory', function(CacheFactory) {
 	'use strict';
 	/* jshint newcap:false */
-	return CacheFactory('briefCache', {
+	return CacheFactory.get('briefCache') || CacheFactory('briefCache', {
 		maxAge: 10 * 1000, // expire after 10 secs
 		cacheFlushInterval: 60 * 60 * 1000, // clear itself every hour
 		deleteOnExpire: 'passive' // delete as they are requested
