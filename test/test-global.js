@@ -19,16 +19,20 @@ describe('Globals (no module)', function() {
 		expect(briefCache.put).toEqual(jasmine.any(Function));
 	});
 
-	it('should have a maximum age of 10 seconds', function() {
-		expect(briefCache.info().maxAge).toBe(10000); // in milliseconds
-	});
+	describe('defaults', function() {
 
-	it('should flush the cache every hour', function() {
-		expect(briefCache.info().cacheFlushInterval).toBe(3600000); // in milliseconds
-	});
+		it('should have a maximum age of 10 seconds', function() {
+			expect(briefCache.info().maxAge).toBe(10000); // in milliseconds
+		});
 
-	it('should use passive removal', function() {
-		expect(briefCache.info().deleteOnExpire).toBe('passive');
+		it('should flush the cache every hour', function() {
+			expect(briefCache.info().cacheFlushInterval).toBe(3600000); // in milliseconds
+		});
+
+		it('should use passive removal', function() {
+			expect(briefCache.info().deleteOnExpire).toBe('passive');
+		});
+
 	});
 
 });
