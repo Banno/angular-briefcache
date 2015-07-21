@@ -83,7 +83,13 @@ This cache factory comes with the following settings:
 * Expired items are deleted as they are requested (passive removal).
 * The entire cache is completely cleared every hour.
 
-You can enable and disable the cache on the fly:
+You can disable (or re-enable) the cache prior to Angular bootstrap:
+
+```javascript
+briefCacheProvider.disable();
+```
+
+You can also enable and disable the cache on the fly:
 
 ```javascript
 briefCache.disable();
