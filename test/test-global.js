@@ -23,6 +23,24 @@ describe('Globals (no module)', function() {
 			});
 		});
 
+		it('should allow the maximum age to be changed', function() {
+			briefCacheProvider.setMaxAge(42);
+			createCache();
+			expect(briefCache.info().maxAge).toBe(42);
+		});
+
+		it('should allow the flush interval to be changed', function() {
+			briefCacheProvider.setCacheFlushInterval(42);
+			createCache();
+			expect(briefCache.info().cacheFlushInterval).toBe(42);
+		});
+
+		it('should allow the removal method to be changed', function() {
+			briefCacheProvider.setDeleteOnExpire('aggressive');
+			createCache();
+			expect(briefCache.info().deleteOnExpire).toBe('aggressive');
+		});
+
 		it('should allow the cache to be disabled', function() {
 			briefCacheProvider.disable();
 			createCache();
@@ -74,6 +92,21 @@ describe('Globals (no module)', function() {
 		});
 
 		describe('configuration', function() {
+
+			it('should allow the maximum age to be changed', function() {
+				briefCache.setMaxAge(42);
+				expect(briefCache.info().maxAge).toBe(42);
+			});
+
+			it('should allow the flush interval to be changed', function() {
+				briefCache.setCacheFlushInterval(42);
+				expect(briefCache.info().cacheFlushInterval).toBe(42);
+			});
+
+			it('should allow the removal method to be changed', function() {
+				briefCache.setDeleteOnExpire('aggressive');
+				expect(briefCache.info().deleteOnExpire).toBe('aggressive');
+			});
 
 			it('should allow the cache to be disabled', function() {
 				briefCache.disable();
