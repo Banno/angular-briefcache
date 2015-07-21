@@ -80,8 +80,34 @@ You can also use RequireJS to load the modules:
 This cache factory comes with the following settings:
 
 * Each item has a maximum age of 10 seconds.
-* Expired items are deleted as they are requested (passive removal).
+* Expired items are deleted as they are requested ("passive" removal).
 * The entire cache is completely cleared every hour.
+
+These settings can be changed in the briefCacheProvider (prior to Angular bootstrap) or briefCache:
+
+```javascript
+briefCacheProvider.setMaxAge(8 * 1000); // 8 seconds
+briefCacheProvider.setCacheFlushInterval(24 * 60 * 60 * 1000); // flush the cache every 24 hours
+briefCacheProvider.setDeleteOnExpire('aggressive'); // search for and deleted expired items
+
+briefCache.setMaxAge(8 * 1000);
+briefCache.setCacheFlushInterval(null); // disables clearing of the entire cache periodically
+briefCache.setDeleteOnExpire('passive'); // use passive removed (the default)
+```
+
+You can disable (or re-enable) the cache prior to Angular bootstrap:
+
+```javascript
+briefCacheProvider.disable();
+```
+
+You can also enable and disable the cache on the fly:
+
+```javascript
+briefCache.disable();
+briefCache.enable();
+console.log('Is briefCache disabled?', briefCache.info().disabled);
+```
 
 ## Contributing
 
