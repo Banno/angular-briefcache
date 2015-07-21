@@ -19,7 +19,11 @@ describe('Globals (no module)', function() {
 		expect(briefCache.put).toEqual(jasmine.any(Function));
 	});
 
-	describe('defaults', function() {
+	it('should begin enabled', function() {
+		expect(briefCache.info().disabled).toBe(false);
+	});
+
+	describe('default configuration', function() {
 
 		it('should have a maximum age of 10 seconds', function() {
 			expect(briefCache.info().maxAge).toBe(10000); // in milliseconds
@@ -31,6 +35,21 @@ describe('Globals (no module)', function() {
 
 		it('should use passive removal', function() {
 			expect(briefCache.info().deleteOnExpire).toBe('passive');
+		});
+
+	});
+
+	describe('configuration', function() {
+
+		it('should allow the cache to be disabled', function() {
+			briefCache.disable();
+			expect(briefCache.info().disabled).toBe(true);
+		});
+
+		it('should allow the cache to be re-enabled', function() {
+			briefCache.disable();
+			briefCache.enable();
+			expect(briefCache.info().disabled).toBe(false);
 		});
 
 	});

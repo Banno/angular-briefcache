@@ -83,6 +83,14 @@ This cache factory comes with the following settings:
 * Expired items are deleted as they are requested (passive removal).
 * The entire cache is completely cleared every hour.
 
+You can enable and disable the cache on the fly:
+
+```javascript
+briefCache.disable();
+briefCache.enable();
+console.log('Is briefCache disabled?', briefCache.info().disabled);
+```
+
 ## Contributing
 
 You'll need [gulp](http://gulpjs.com/) installed on your machine to run the development tools. Then run `gulp` to run all of the tasks and watch the files for changes.
