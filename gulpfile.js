@@ -72,10 +72,10 @@ gulp.task('test:globals', function(done) {
 });
 
 gulp.task('test:amd', function(done) {
-	karma.start({
+	new karma({
 		configFile: __dirname + '/test/amd.conf.js',
 		singleRun: true
-	}, done);
+	}, function() { done(); }).start();
 });
 
 gulp.task('test', function(done) {
