@@ -23,6 +23,10 @@ describe('Globals (no module)', function() {
 			});
 		});
 
+		afterEach(inject(function(CacheFactory) {
+			CacheFactory.destroy('briefCache');
+		}));
+
 		it('should allow the maximum age to be changed', function() {
 			briefCacheProvider.setMaxAge(42);
 			createCache();
