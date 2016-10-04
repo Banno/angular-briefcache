@@ -3,7 +3,7 @@ module.exports = function(config) {
 	config.set({
 		basePath: '../',
 		files: [
-			'bower_components/angular/angular.js',
+			'node_modules/angular/angular.js',
 			'node_modules/angular-mocks/angular-mocks.js',
 			'bower_components/angular-cache/dist/angular-cache.js',
 			'dist/angular-briefcache.js',
