@@ -4,7 +4,7 @@ var del         = require('del');
 var gulp        = require('gulp');
 var header      = require('gulp-header');
 var jshint      = require('gulp-jshint');
-var karma       = require('karma').Server;
+var Karma       = require('karma').Server;
 var pkg         = require('./package.json');
 var rename      = require('gulp-rename');
 var runSequence = require('run-sequence').use(gulp);
@@ -65,14 +65,14 @@ gulp.task('build', ['clean'], function() {
 });
 
 gulp.task('test:globals', function(done) {
-	new karma({
+	new Karma({
 		configFile: __dirname + '/test/global.conf.js',
 		singleRun: true
 	}, function() { done(); }).start();
 });
 
 gulp.task('test:amd', function(done) {
-	new karma({
+	new Karma({
 		configFile: __dirname + '/test/amd.conf.js',
 		singleRun: true
 	}, function() { done(); }).start();
