@@ -1,5 +1,5 @@
 /*!
- * angular-briefcache v1.1.0
+ * angular-briefcache v1.2.0
  * https://github.com/Banno/angular-briefcache
  * (c) 2015 Jack Henry & Associates Inc
  * License: Apache-2.0
