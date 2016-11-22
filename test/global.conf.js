@@ -5,7 +5,7 @@ module.exports = function(config) {
 		files: [
 			'node_modules/angular/angular.js',
 			'node_modules/angular-mocks/angular-mocks.js',
-			'bower_components/angular-cache/dist/angular-cache.js',
+			'node_modules/angular-cache/dist/angular-cache.js',
 			'dist/angular-briefcache.js',
 			'test/test-global.js'
 		],
