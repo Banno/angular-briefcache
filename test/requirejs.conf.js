@@ -16,7 +16,7 @@ requirejs.config({
 
 	paths: {
 		'angular': 'node_modules/angular/angular',
-		'angular-cache': 'bower_components/angular-cache/dist/angular-cache',
+		'angular-cache': 'node_modules/angular-cache/dist/angular-cache',
 		'angular-mocks': 'node_modules/angular-mocks/angular-mocks',
 		'banno/briefCache': 'dist/angular-briefcache'
 	},

@@ -18,10 +18,10 @@ angular.module('myApp', ['banno.briefCache']).service('ExampleService', function
 
 ## Installation
 
-The briefCache requires Angular and the [angular-cache](https://github.com/jmdobry/angular-cache) library. These are installed automatically when using bower:
+The briefCache requires Angular and the [angular-cache](https://github.com/jmdobry/angular-cache) library. These are installed automatically when using npm:
 
 ```shell
-`bower install --save angular-briefcache`
+`npm install --save angular-briefcache`
 ```
 
 Then include the necessary scripts in your app:
@@ -30,9 +30,9 @@ Then include the necessary scripts in your app:
 <html ng-app="myApp">
   <head>
     <title>Example</title>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
-    <script src="bower_components/angular-briefcache/dist/angular-briefcache.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-cache/dist/angular-cache.js"></script>
+    <script src="node_modules/angular-briefcache/dist/angular-briefcache.js"></script>
     <script>
       angular.module('myApp', ['banno.briefCache']).run(function(briefCache) {
         console.log('briefCache info:', briefCache.info());
@@ -49,7 +49,7 @@ You can also use RequireJS to load the modules:
 <html ng-app="myApp">
   <head>
     <title>Example using RequireJS</title>
-    <script src="bower_components/requirejs/require.js"></script>
+    <script src="node_modules/requirejs/require.js"></script>
     <script>
       requirejs.config({
         shim: {
@@ -58,9 +58,9 @@ You can also use RequireJS to load the modules:
           }
         },
         paths: {
-          'angular': 'bower_components/angular/angular',
-          'angular-cache': 'bower_components/angular-cache/dist/angular-cache',
-          'banno/briefCache': 'bower_components/angular-briefcache/dist/angular-briefcache'
+          'angular': 'node_modules/angular/angular',
+          'angular-cache': 'node_modules/angular-cache/dist/angular-cache',
+          'banno/briefCache': 'node_modules/angular-briefcache/dist/angular-briefcache'
         }
       });
 
